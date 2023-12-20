@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yung Ray Studios</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="icon" type="image/x-icon" href="/artwork/images/yr.ico" />
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+      }
+    </style>
+    <script src="/assets/scripts.js"></script>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="index.html" class="navbar-logo">
+        <img src="/artwork/images/yr.jpg" alt="Logo" />
+      </a>
+      <a href="/pages/beats.html" class="active">Beats</a>
+      <a href="/pages/services.html">Services</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/pricing.html">Pricing</a>
+      <div class="navbar-right">
+        <a href="/pages/login.html">Login</a>
+        <a href="/pages/signup.html" class="sign-up">Sign up</a>
+      </div>
+    </div>
+    <div class="filter-bar">
+        <!-- Filter Dropdowns hier -->
+        <select name="category">
+          <option value="all">All Category</option>
+          <!-- Weitere Optionen -->
+        </select>
+        
+        <select name="bpm">
+          <option value="all">All Bpm</option>
+          <!-- Weitere Optionen -->
+        </select>
+        
+        <select name="moods">
+          <option value="all">All Moods</option>
+          <!-- Weitere Optionen -->
+        </select>
+        
+        <select name="genres">
+          <option value="all">All Genres</option>
+          <!-- Weitere Optionen -->
+        </select>
+        
+        <select name="sort">
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <!-- Weitere Optionen -->
+        </select>
+      </div>
+
+      <div class="search-bar">
+        <form action="search_results.php" method="GET">
+          <label for="search-input" class="search-label"></label>
+          <input
+            style="width: 660px"
+            type="text"
+            id="search-input"
+            name="search"
+            placeholder="What type of beat are you looking for?"
+          />
+          <button type="submit" class="search-button">SEARCH</button>
+        </form>
+      </div>
+
+      <div class="beat-list">
+        <!--ALL BEATS BELOW-->
+        <audio id="b1" src="/audio/Beats/Test.wav"></audio>
+        <audio id="b2" src="/audio/Beats/Test2.wav"></audio>
+
+        <!-- Beispiel für einen Track-Eintrag -->
+        <li class="beat-item">
+          <div class="beat-info">
+            <a
+              href="#"
+              onclick="document.getElementById('b1').play(); return false;"
+              class="beat-title"
+            >
+              Test Beat
+            </a>
+            <div class="time" id="bd1"></div>
+            <div class="bpm">155 BPM</div>
+            <div class="tags">
+              <div class="tag">21 savage</div>
+              <div class="tag">drake type beat</div>
+            </div>
+            <button class="price-button">
+              <img src="/artwork/images/dl.png" onclick="getGPSData()" class="shoppingbag" />
+            </button>
+          </div>
+        </li>
+        <!-- Weitere Track-Einträge -->
+
+        <li class="beat-item">
+          <div class="beat-info">
+            <a
+              href="#"
+              onclick="document.getElementById('b2').play(); return false;"
+              class="beat-title"
+            >
+              Test Beat 2
+            </a>
+            <div class="time" id="bd2"></div>
+            <div class="bpm">100 BPM</div>
+            <div class="tags">
+              <div class="tag">drake type beat</div>
+            </div>
+            <button class="price-button">
+              <img src="/artwork/images/dl.png" class="shoppingbag" />
+            </button>
+          </div>
+        </li>
+      </div>
+    </div>
+    <div class="audio-player">
+      <audio id="global-audio-player" controls>
+        <!-- Keine Quelle, da diese dynamisch gesetzt wird -->
+      </audio>
+    </div>
+  </body>
+</html>

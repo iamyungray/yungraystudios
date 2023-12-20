@@ -1,0 +1,364 @@
+/* Reset für margin und padding für alle Elemente */
+* {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: hsb;
+  src: url(/artwork/fonts/hsb.ttf);
+}
+
+@font-face {
+  font-family: dashley;
+  src: url(/artwork/fonts/dashley.ttf);
+}
+
+body {
+  background-color: #000000;
+  font-family: hsb;
+  color: #bbb;
+}
+
+.navbar {
+  background-color: #000000;
+  overflow: hidden;
+  font-family: dashley;
+  font-size: large;
+  width: 100%;
+  height: 60px; /* Feste Höhe für die Navbar */
+  box-shadow: 1px 1px 510px #0079a1;
+  margin-top: 0.1px;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #bbb; /* Gräulicher Text */
+  text-align: center;
+  padding: 20px 16px; /* Vergrößertes Padding für mehr Höhe */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffffffdd;
+  text-decoration: none;
+}
+
+/* Zentriert den Inhalt von navbar-right vertikal */
+.navbar-right {
+  float: right;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Diese Zeile bewirkt die vertikale Zentrierung */
+}
+
+.navbar-right a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.navbar-right a.sign-up {
+  background-color: #0079a1; /* Hintergrundfarbe für den Button */
+  color: #ffffffdd; /* Textfarbe für den Button */
+  border-radius: 20px; /* Runde Ecken für den Button */
+  margin-left: 8px; /* Etwas Abstand zwischen den Links */
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 21px;
+}
+
+.navbar-right a.sign-up:hover {
+  background-color: #00526e; /* Hover-Hintergrundfarbe für den Button */
+  color: #ffffffdd; /* Hover-Textfarbe für den Button */
+}
+
+.navbar-logo img {
+  height: 50px; /* Angepasste Höhe */
+  width: auto; /* Breite wird automatisch angepasst */
+  vertical-align: middle; /* Vertikale Ausrichtung */
+  margin-top: -18px; /* Passen Sie diesen Wert an, um das Bild nach oben zu verschieben */
+}
+
+/* Klasse für den aktiven Tab */
+.navbar a.active {
+  color: #ffffffdd; /* Ändert die Textfarbe für den aktiven Tab */
+  position: relative; /* Für Pseudo-Element-Positionierung */
+}
+
+/* loading effect 
+@keyframes bounce-line {
+  0%,
+  100% {
+    left: 0;
+    width: 0%; /* Beginnt am linken Rand mit keiner Breite 
+  }
+  25%,
+  75% {
+    left: 12.5%; /* 12.5% vom linken Rand, um die Linie zu zentrieren 
+    width: 75%; /* Volle Breite ist nun 75% statt 100% 
+  }
+  50% {
+    left: 100%;
+    width: 0%; /* Keine Breite in der Mitte, am rechten Rand 
+  }
+}
+*/
+
+@keyframes bounce-line {
+  0%,
+  100% {
+    left: 25%;
+    width: 50%; /* Minimale Breite beibehalten */
+  }
+  50% {
+    left: 0;
+    width: 100%; /* Volle Breite in der Mitte der Animation */
+  }
+}
+
+.navbar a.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  height: 4px;
+  background-color: #0079a1;
+  border-radius: 2px;
+  animation: bounce-line 2s infinite ease-in-out;
+}
+
+.navbar a.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  height: 4px;
+  background-color: #0079a1;
+  border-radius: 2px;
+  animation: bounce-line 2s infinite ease-in-out;
+}
+
+/* Style für die gesamte Suchleiste */
+.search-bar {
+  position: absolute;
+  top: 50%; /* Positioniert die Leiste in der Mitte der Seite vertikal */
+  left: 50%; /* Positioniert die Leiste in der Mitte der Seite horizontal */
+  transform: translate(-50%, -50%); /* Zentriert die Leiste genau */
+  background: #000000; /* Festes Grau statt Transparenz */
+  border-radius: 50px; /* Leicht abgerundete Ecken */
+  border: 2px solid #333333;
+  padding: 10px; /* Etwas Platz innerhalb des Feldes */
+  display: flex; /* Flex-Container für die Ausrichtung der Kinder */
+  align-items: center; /* Zentriert die Elemente vertikal */
+  width: 80%; /* Prozentuale Breite bezogen auf den übergeordneten Container */
+  max-width: 800px; /* Maximale Breite des Suchfeldes */
+}
+
+/* Style für das Eingabefeld */
+#search-input {
+  flex-grow: 1; /* Lässt das Eingabefeld den verfügbaren Platz ausfüllen */
+  margin-right: 0px; /* Etwas Abstand zum Suchbutton */
+  border: 2px solid #00000000; /* Setzt die Umrandung auf festes Grau */
+  padding: 10px; /* Innenabstand */
+  color: #ffffffdd; /* Textfarbe */
+  background: none; /* Kein Hintergrund */
+  font-size: 16px; /* Schriftgröße */
+  font-family: hsb;
+}
+
+/* Entfernt die Umrandung, wenn das Eingabefeld fokussiert wird */
+#search-input:focus {
+  outline: none; /* Keine Kontur */
+  border-color: #00000000; /* Umrandungsfarbe auf festes Grau setzen */
+}
+
+/* Style für den Suchbutton */
+.search-button {
+  padding: 15px 25px; /* Polsterung */
+  background-color: #0079a1; /* Goldene Farbe */
+  color: #ffffffdd; /* Textfarbe */
+  border: none; /* Entfernt die Bordüre */
+  border-radius: 50px; /* Abgerundete Ecken */
+  cursor: pointer; /* Cursor */
+  font-family: dashley;
+  font-size: large;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Style für den Suchbutton beim Überfahren mit der Maus */
+.search-button:hover {
+  background-color: #00526e; /* Dunkleres Gold beim Hover */
+}
+
+/* Responsive Anpassungen falls nötig */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: row; /* Hält die Elemente in einer Zeile */
+  }
+}
+
+/* Stildefinitionen für die Track-Liste */
+
+/* OLD:
+.beat-list {
+    padding: 0;
+    max-width: 1100px;
+    margin: 20px auto;
+    grid-template-columns: 0px 0px 0px;
+    grid-template-rows: 0px auto 0px; 
+    column-gap: 0px;
+    gap: 0px;
+    justify-items: start;
+    align-items: center;
+}
+*/
+.beat-list {
+  list-style: none;
+  padding: 0;
+  max-width: 1100px;
+  margin: 20px auto;
+  margin-top: 100px;
+}
+
+.beat-item {
+  background: #000000;
+  padding: 5px; /* Etwas mehr Padding für bessere Optik */
+  margin-bottom: 10px; /* Abstand zwischen den Beat-Elementen */
+  border-bottom: 2px solid #333333;
+}
+
+/* Weise den Kind-Elementen von .beat-item einen Bereich zu */
+.beat-title {
+  font-size: 1.2rem;
+  color: #ffffffdd;
+  font-size: medium;
+  text-decoration: none;
+}
+.beat-title:hover {
+  color: #bbb;
+  text-decoration: underline;
+}
+
+.price-button {
+  background: #0079a1; /* Beispiel: goldene Farbe für Preis-Buttons */
+  color: #ffffffdd;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: hsb;
+  font-size: medium;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.price-button:hover {
+  background-color: #00526e; /* Dunkleres Gold beim Hover */
+}
+
+/* OLD:
+.beat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+  justify-items: start;
+}
+*/
+
+.beat-info {
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    1fr
+  ); /* Erstellt 5 Spalten mit flexibler Breite */
+  gap: 10px; /* Abstand zwischen den Spalten und Reihen */
+  align-items: center;
+  justify-items: center;
+}
+
+.shoppingbag {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  align-items: center;
+}
+
+.tag {
+  color: #ffffffdd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+/* Responsive Anpassungen für kleinere Bildschirme */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Positionieren und Stylen der Filterleiste */
+.filter-bar {
+  display: flex;
+  justify-content: center; /* Zentriert die Dropdowns horizontal */
+  gap: 10px; /* Abstand zwischen den Dropdowns */
+  margin-top: 200px; /* Abstand zur Suchleiste */
+  padding: 10px 0; /* Vertikaler Innenabstand */
+}
+
+/* Stylen der Dropdown-Elemente */
+.filter-bar select {
+  font-family: hsb;
+  background-color: #0079a1; /* Goldene Farbe, wie im Screenshot */
+  color: #ffffffdd;
+  padding: 10px 30px;
+  margin: 0 10px;
+  border: none; /* Keinen Rahmen anzeigen */
+  border-radius: 25px; /* Abgerundete Ecken */
+  font-size: 1em; /* Schriftgröße anpassen */
+  cursor: pointer; /* Cursor-Stil beim Hover */
+  transition: background-color 0.3s, color 0.3s;
+  -webkit-appearance: none; /* Für Safari und Chrome */
+  -moz-appearance: none; /* Für Firefox */
+  appearance: none;
+  background-image: url("/artwork/images/down-arrow.png"); /* Pfad zum Pfeil-Icon */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Position des Icons */
+  background-size: 15px; /* Größe des Icons */
+}
+
+.filter-bar select:hover {
+  background-color: #00526e; /* Dunkleres Gold beim Hover */
+}
+
+/* Entfernen der standardmäßigen Pfeil-Icons von Dropdowns */
+.filter-bar select::-ms-expand {
+  display: none;
+}
+
+.audio-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #0079a1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.audio-player audio {
+  width: 100%; /* oder eine spezifische Breite, wenn nötig */
+}
+
+/* Weitere spezifische Stile können hier hinzugefügt werden, wie Icons, Button-Styles etc. */
+
+
